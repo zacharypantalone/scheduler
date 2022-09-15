@@ -3,12 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "classnames": "^2.2.6",
+    "classnames": "^2.3.2",
     "normalize.css": "^8.0.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.4.4"
-    
   },
   "scripts": {
     "start": "react-scripts start",
@@ -40,7 +39,6 @@
     "@testing-library/jest-dom": "^4.0.0",
     "@testing-library/react": "^8.0.7",
     "sass": "^1.53.0"
-    
   },
   "jest": {
     "watchPathIgnorePatterns": [
