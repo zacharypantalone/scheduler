@@ -7,3 +7,7 @@ export function getAppointmentsForDay (state, dayName) {
   return actualDay.appointments.map((id) => state.appointments[id]);
   } else {return []}
 }
+
+export function getInterview(state, interview) {
+  
+}
