@@ -20,7 +20,7 @@ export default function Form(props) {
     reset();
     props.onCancel();
   }
-
+  console.log(props.interviewers)
   return (
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">
@@ -34,10 +34,11 @@ export default function Form(props) {
             placeholder="Enter Student Name"
           />
         </form>
+        <h4>interviewer</h4>
         <InterviewerList
           value={interviewer}
           onChange={setInterviewer}
-          interviewers={[]}
+          interviewers={props.interviewers}
         />
       </section>
       <section className="appointment__card-right">
