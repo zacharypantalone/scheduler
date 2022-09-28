@@ -6,6 +6,7 @@ import Empty from "components/Appointment/Empty.js";
 import useVisualMode from "hooks/useVisualMode";
 import Form from "components/Appointment/Form";
 import Status from "./Status";
+import Confirm from "./Confirm";
 
 
 
@@ -14,6 +15,8 @@ import Status from "./Status";
   const CREATE = "CREATE";
   const EDIT = "EDIT";
   const SAVING = "SAVING";
+  const CONFIRM = "CONFIRM";
+  const DELETING = "DELETING";
 
 export default function Appointment(props) {
   
@@ -35,6 +38,13 @@ export default function Appointment(props) {
     
   }
 
+  function deleteInterview() {
+    transition(DELETING);
+
+    props.cancelInterview(props.id)
+    .then(() => transition(EMPTY));
+  }
+
   return (
     <article className="appointment">
       <Header time={props.time}  />
@@ -44,6 +54,7 @@ export default function Appointment(props) {
           student={props.interview.student}
           interviewer={props.interview.interviewer}
           onEdit={() => transition(EDIT)}
+          onDelete={() => transition(CONFIRM)}
           
         />
       )}
@@ -72,6 +83,25 @@ export default function Appointment(props) {
         />
 
       )}
+      
+      {mode === DELETING && (
+        <Status
+        message="DELETING..."
+        
+        />
+
+      )}
+
+      {mode === CONFIRM && (
+        <Confirm
+        onCancel={back}
+        onConfirm={deleteInterview}
+        message="Are you sure you would like to delete?"
+        
+        />
+      )}
+
+      
 
 
         
