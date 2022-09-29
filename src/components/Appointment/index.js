@@ -34,9 +34,11 @@ export default function Appointment(props) {
     transition(SAVING);
 
     props.bookInterview(props.id, interview)
-    .then(() => transition(SHOW));
-    
+    .then(() => transition(SHOW))
+    .catch((error) => console.log(error))
   }
+
+ 
 
   function deleteInterview() {
     transition(DELETING);
@@ -72,7 +74,8 @@ export default function Appointment(props) {
         interviewers={props.interviewers}
         onSave={save}
         student={props.interview.student}
-        interviewer={props.interview.interviewer}
+        interviewer={props.interview.interviewer.id}
+        
         />
       )}
 
