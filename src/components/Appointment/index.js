@@ -34,27 +34,29 @@ export default function Appointment(props) {
       interviewer
     };
 
-    transition(SAVING)
+    transition(SAVING, true)
 
     props.bookInterview(props.id, interview)
     .then(() => transition(SHOW))
-    .catch(() => transition(ERROR_SAVE))
+    .catch(() => transition(ERROR_SAVE, true))
   }
 
  
 
   function deleteInterview() {
-    transition(DELETING)
+    transition(DELETING, true)
 
     props.cancelInterview(props.id)
     .then(() => transition(EMPTY))
-    .catch(() => transition(ERROR_DELETE))
+    .catch(() => transition(ERROR_DELETE, true))
   }
 
   return (
     <article className="appointment">
       <Header time={props.time}  />
+
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
+      
       {mode === SHOW && (
         <Show
           student={props.interview.student}
@@ -64,6 +66,7 @@ export default function Appointment(props) {
           
         />
       )}
+      
       {mode === CREATE && (
         <Form
         onCancel={back}
@@ -118,6 +121,8 @@ export default function Appointment(props) {
       {mode === ERROR_DELETE && (
         <Error
         message="There was an error deleting your appointment"
+        onClose={back}
+        
         />
       )}
 
