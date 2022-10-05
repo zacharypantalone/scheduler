@@ -15,6 +15,7 @@ import {
 } from "@testing-library/react";
 
 import Application from "components/Application";
+import axios from "axios";
 import { debug } from "request";
 
 afterEach(cleanup);
@@ -95,7 +96,7 @@ describe("Form", () => {
     
       })
 
-      it.("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
+      it("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
         const { container } = render(<Application />);
 
         await waitForElement(() => getByText(container, "Archie Cohen"));
@@ -125,5 +126,10 @@ describe("Form", () => {
         
 
       })
+
+      it("shows the save error when failing to save an appointment", () => {
+        axios.put.mockRejectedValueOnce();
+      });
+      
     });
     
