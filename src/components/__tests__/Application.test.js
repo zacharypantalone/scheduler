@@ -11,9 +11,11 @@ import {
   getAllByTestId,
   getByAltText,
   getByPlaceholderText,
+  queryAllByAltText,
 } from "@testing-library/react";
 
 import Application from "components/Application";
+import { debug } from "request";
 
 afterEach(cleanup);
 
@@ -63,4 +65,24 @@ describe("Form", () => {
   
     expect(getByText(day, "no spots remaining")).toBeInTheDocument();
   });
+
+  it("loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
+    const { container } = render(<Application />);
+
+    await waitForElement(() => getByText(container, "Archie Cohen"));
+
+    const appointment = getAllByTestId(container, "appointment").find(
+      appointment => queryByText(appointment, "Archie Cohen")
+      );
+
+    fireEvent.click(queryAllByAltText(appointment, "Delete"));
+
+      expect(getByText(appointment, "Are you sure you would like to delete?")).toBeInTheDocument();
+  
+
+    
+    
+    
+    debug();
+  })
 });
