@@ -74,15 +74,25 @@ describe("Form", () => {
     const appointment = getAllByTestId(container, "appointment").find(
       appointment => queryByText(appointment, "Archie Cohen")
       );
-
-    fireEvent.click(queryAllByAltText(appointment, "Delete"));
+    
+    fireEvent.click(getByAltText(appointment, "Delete"));
+    
 
       expect(getByText(appointment, "Are you sure you would like to delete?")).toBeInTheDocument();
-  
+      
+      fireEvent.click(queryByText(appointment, "Confirm"));
 
+      expect(getByText(appointment, "Deleting...")).toBeInTheDocument();
+
+      await waitForElement(() => getByAltText(appointment, "Add"));
+
+
+      const day = getAllByTestId(container, "day").find(day =>
+        queryByText(day, "Monday")
+        );
+        
+        expect(getByText(day, "2 spots remaining").toBeInTheDocument)
     
+      })
+    });
     
-    
-    debug();
-  })
-});
