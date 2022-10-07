@@ -18,13 +18,6 @@ import axios from "axios";
 afterEach(cleanup);
 
 describe("Form", () => {
-  const interviewers = [
-    {
-      id: 1,                              ///DO I NEED THIS ARRAY?////
-      student: "Sylvia Palmer",
-      avatar: "https://i.imgur.com/LpaY82x.png",
-    },
-  ];
 
   it("defaults to Monday and changes the schedule when a new day is selected", async () => {
     const { getByText } = render(<Application />);
@@ -71,8 +64,7 @@ describe("Form", () => {
 
     fireEvent.click(getByAltText(appointment, "Delete"));
 
-    expect(
-      getByText(appointment, "Are you sure you would like to delete?")).toBeInTheDocument();
+    expect(getByText(appointment, "Are you sure you would like to delete?")).toBeInTheDocument();
     
 
     fireEvent.click(queryByText(appointment, "Confirm"));
