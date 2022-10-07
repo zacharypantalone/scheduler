@@ -1,13 +1,19 @@
 # Interview Scheduler
 
+
+## !! IMPORTANT: PLEASE USE YARN WHEN RUNNING THE WEBPACK DEVELOPMENT SERVER !!
+
+Version by Zachary Pantalone
+Git: https://github.com/zacharypantalone
+
 ## Setup
 
-Install dependencies with `npm install`.
+Install dependencies with `npm install` and `yarn install`.
 
 ## Running Webpack Development Server
 
 ```sh
-npm start
+yarn start
 ```
 
 ## Running Jest Test Framework
@@ -21,3 +27,7 @@ npm test
 ```sh
 npm run storybook
 ```
+
+## Screen Shots
+
+![](Markdown/Screen%20Shot%202022-10-06%20at%209.14.50%20PM.png)
