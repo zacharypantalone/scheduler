@@ -33,7 +33,7 @@ function save(name, interviewer) {
     interviewer
   };
 
-  transition(SAVING, true)
+  transition(SAVING)
 
   props.bookInterview(props.id, interview)
   .then(() => transition(SHOW))
