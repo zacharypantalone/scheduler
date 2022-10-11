@@ -37,11 +37,7 @@ describe("Form", () => {
 
     /* 2. Render the Form with interviewers and the onSave mock function passed as an onSave prop, the student prop should be blank or undefined */
 
-    const { getByText } = render(
-      <Form interviewers={interviewers} onSave={onSave} />
-    )
-  
-    
+    const { getByText } = render(<Form interviewers={interviewers} onSave={onSave} />)
   
     /* 3. Click the save button */
     fireEvent.click(getByText("Save"));
@@ -112,6 +108,5 @@ describe("Form", () => {
   
     expect(onCancel).toHaveBeenCalledTimes(1);
   });
-
 
 });

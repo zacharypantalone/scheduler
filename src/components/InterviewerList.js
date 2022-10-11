@@ -19,8 +19,6 @@ export default function InterviewerList(props) {
     );
   });
 
-  
-
   return <ul className="interviewers__list">{interviewerList}</ul>;
 };
 

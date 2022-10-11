@@ -18,6 +18,5 @@ test("useVisualMode should initialize with default value", () => {
 
   act(() => result.current.back());
   expect(result.current.mode).toBe(FIRST);
-  
 
 });

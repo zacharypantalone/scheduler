@@ -7,7 +7,6 @@ describe("Appointments", () => {
     cy.contains("Monday");
   });
 
-
   it("should book an interview", () => {
     cy.get("[alt=Add]")
       .first()
@@ -50,8 +49,4 @@ describe("Appointments", () => {
     cy.contains(".appointment__card", "Archie Cohen")
       .should("not.exist");
   })
-
-  
-  
-
 })
